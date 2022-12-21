@@ -1,0 +1,47 @@
+.container {
+  text-align: center;
+}
+
+.wrapper {
+  height: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+  width: 60rem;
+  max-width: 95%;
+}
+.title {
+  margin: 0 auto;
+  font-size: 70px;
+  font-weight: 300;
+  background-image: linear-gradient(to right, #553c9a 45%, #ee4b2b);
+  text-shadow: 0px 4px 10px rgba(179, 147, 211, 0.8);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.fixed {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  display: table;
+  margin: 10px;
+}
+.scroll {
+  padding: 1%;
+  text-align: center;
+  font-size: 20px;
+}
+
+.one {
+  background: url("https://d2l4kn3pfhqw69.cloudfront.net/wp-content/uploads/2020/12/GG_Jewellery_1024_683-1.jpg") no-repeat center center fixed;
+}
+.two {
+  background: url("https://gioia.com.sg/wp-content/uploads/2020/12/Fairytale-Princess-Jasmine-Inspired-Arab-Pendant-with-Trilliant-Tourmaline-and-Tanzanite-Diamond-1024x683.jpg") no-repeat center center fixed;
+}
+.three {
+  background: url("https://cdn.shopify.com/s/files/1/2343/8923/files/DSC_5981_668a114e-5b2e-462e-b4be-c67baabbccf3_x800.jpg?v=1664389032") no-repeat center center fixed;
+}
