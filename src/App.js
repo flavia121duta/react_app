@@ -53,7 +53,7 @@ function App() {
     },
   ];
 
-  let userIsRegistered = true;
+  // let userIsRegistered = true;
 
   return (
     <Layout>
@@ -74,7 +74,7 @@ function App() {
           <Favorites />
         </Route>
         <Route path="/login">
-          <Login isRegistered={userIsRegistered} />
+          <Login />
         </Route>
         <Route path="*">
           <NotFound />
