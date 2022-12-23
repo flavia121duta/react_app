@@ -13,26 +13,31 @@ const Welcome = () => {
     message = "Good Evening";
   }
 
-  const images = [
+  const dummy_images = [
     {
-      url: "https://atlanticstation.com/wp-content/uploads/2020/09/1-Pandora-Charm-Bracelet.jpg",
-      title: "bracelet",
+      id: 1,
+      src: "https://www.pandora.net/-/media/Images/Consumer/campaigns/2021/CycleG_Nov_Dec/PLP_banners/NAVSpots/Brand_Site_NavSpots_Charms.jpg",
+      alt: "talisman",
     },
     {
-      url: "https://cms-live.pandora.net/resource/responsive-image/1717914/m37-hybrid-plp-hero-module-bvi21/xs/4/bracelets-hero.jpg",
-      title: "magnetic-bracelet",
+      id: 2,
+      src: "https://www.pandora.net/-/media/Images/Consumer/campaigns/2021/CycleG_Nov_Dec/PLP_banners/NAVSpots/Brand_Site_NavSpots_rings.jpg",
+      alt: "ring",
     },
     {
-      url: "https://cms-live.pandora.net/resource/responsive-image/1391404/m52-explore-module-col-3/xs/5/2021-e-wearability-rotation2-model-26-rgb.jpg",
-      title: "gift-for-woman",
+      id: 3,
+      src: "https://www.pandora.net/-/media/Images/Consumer/campaigns/2021/CycleG_Nov_Dec/PLP_banners/NAVSpots/Brand_Site_NavSpots_bracelets.jpg",
+      alt: "bracelets",
     },
     {
-      url: "https://m.media-amazon.com/images/I/812rIxG1GrL._AC_UY580_.jpg",
-      title: "necklace",
+      id: 4,
+      src: "https://www.pandora.net/-/media/Images/Consumer/campaigns/2021/CycleG_Nov_Dec/PLP_banners/NAVSpots/Brand_Site_NavSpots_necklaces.jpg",
+      alt: "necklaces",
     },
     {
-      url: "https://zoff.ro/image/cache/catalog/01Mihai/PAS053-(4)-800x800.jpg",
-      title: "bracelet-with-cats",
+      id: 5,
+      src: "https://www.pandora.net/-/media/Images/Consumer/campaigns/2021/CycleG_Nov_Dec/PLP_banners/NAVSpots/Brand_Site_NavSpots_earrings.jpg",
+      alt: "earrings",
     },
   ];
 
@@ -42,9 +47,10 @@ const Welcome = () => {
       <br />
       <br />
 
-      <ImageSlider slides={images} />
+      <ImageSlider slides={dummy_images} />
       <br />
       <br />
+
       <div className={styles.wrapper}>
         <div className={styles.scroll}>
           <h3>
@@ -55,9 +61,7 @@ const Welcome = () => {
         <div className={`${styles.fixed} ${styles.one}`}></div>
 
         <div className={styles.scroll}>
-          <h3>
-            Here you cann see our new collection!
-          </h3>
+          <h3>Here you cann see our new collection!</h3>
         </div>
 
         <div className={`${styles.fixed} ${styles.two}`}></div>

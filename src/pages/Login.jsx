@@ -57,7 +57,7 @@ const Login = (props) => {
 
         <label htmlFor="password" placeholder="Password" value={user.enteredUsername}>Password</label>
         <input
-          id="age"
+          id="password"
           type="password"
           onChange={passwordChangeHandler}
           value={user.enteredPassword}

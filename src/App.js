@@ -6,6 +6,7 @@ import DetailsItem from "./components/Jewelry/DetailsItem";
 import Welcome from "./pages/Welcome";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
+import Footer from "./components/layout/Footer";
 
 function App() {
   const DUMMY_PRODUCTS = [
@@ -80,6 +81,7 @@ function App() {
           <NotFound />
         </Route>
       </Switch>
+      <Footer />
     </Layout>
   );
 }

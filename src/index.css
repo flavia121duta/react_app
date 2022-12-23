@@ -54,3 +54,21 @@ body {
   background-color: teal;
   color: white;
 }
+
+/*--------------------------------------*/
+
+.tag {
+  text-align: center;
+}
+
+.slick-slide img {
+  margin: auto;
+  /* width: 50%; */
+  height: 30%;
+  object-fit: cover;
+}
+
+.slick-dots li button:before {
+  font-size: 20px;
+  line-height: 20px;
+}
