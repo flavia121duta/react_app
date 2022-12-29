@@ -1,8 +1,8 @@
-import style from "../components/Jewelry/Jewelry.module.css";
-import Card from "../components/UI/Card";
-import Item from "../components/Jewelry/Item";
+import style from "../Jewelry/Jewelry.module.css";
+import Card from "../UI/Card";
+import Item from "./Item";
 import { useState } from "react";
-import ItemsFilter from "../components/Jewelry/ItemsFilter/ItemsFilter";
+import ItemsFilter from "./ItemsFilter/ItemsFilter";
 
 const Jewlry = (props) => {
   const [favorites, setFavorites] = useState([]);
@@ -36,20 +36,25 @@ const Jewlry = (props) => {
   }
 
   if (sorting === "Ascending") {
-    filteredItems.sort((p1, p2) => (p1.price < p2.price) ? -1 : (p1.price > p2.price) ? 1 : 0);
+    filteredItems.sort((p1, p2) =>
+      p1.price < p2.price ? -1 : p1.price > p2.price ? 1 : 0
+    );
   } else {
-    filteredItems.sort((p1, p2) => (p1.price < p2.price) ? 1 : (p1.price > p2.price) ? -1 : 0);
+    filteredItems.sort((p1, p2) =>
+      p1.price < p2.price ? 1 : p1.price > p2.price ? -1 : 0
+    );
   }
 
   // console.log(filteredItems);
 
   return (
     <div>
-      <ItemsFilter 
-      onCategoryChange={handleFilterChange} 
-      onSortingChange={handleSortingChange}
-      selected={category}
-      sorting={sorting} />
+      <ItemsFilter
+        onCategoryChange={handleFilterChange}
+        onSortingChange={handleSortingChange}
+        selected={category}
+        sorting={sorting}
+      />
 
       <Card className={style.jewelry}>
         {filteredItems.map((jewel) => (

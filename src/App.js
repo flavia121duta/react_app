@@ -1,58 +1,26 @@
+import { useContext } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import Jewlry from "./pages/Jewelry";
-import Favorites from "./pages/Favorites";
-import Layout from "./components/layout/Layout";
+
+// import Jewlry from "./pages/Jewelry";
+// import Favorites from "./pages/Favorites";
+// import Layout from "./components/layout/Layout";
 import DetailsItem from "./components/Jewelry/DetailsItem";
-import Welcome from "./pages/Welcome";
-import Login from "./pages/Login";
-import NotFound from "./pages/NotFound";
-import Footer from "./components/layout/Footer";
+// import Welcome from "./pages/Welcome";
+// import Login from "./pages/Login";
+// import NotFound from "./pages/NotFound";
+import Footer from "./components/Layout/Footer";
+
+import Layout from "./components/Layout/Layout";
+import UserProfile from "./components/Profile/UserProfile";
+import AuthPage from "./pages/AuthPage";
+import HomePage from "./pages/HomePage";
+import JewelryPage from "./pages/JewlryPage";
+import NotFoundPage from "./pages/NotFoundPage";
+// import FavoritesPage from "./pages/FavoritesPage";
+import AuthContext from "./store/auth-context";
 
 function App() {
-  const DUMMY_PRODUCTS = [
-    {
-      id: "j1",
-      category: "Bracelet",
-      src: "https://www.pandora.net/assets/content?sku=592357C01&format=jpg&width=400&height=400&hash=E78E7BE1A3CBF51AEC299679EEFBCD9014E53120",
-      price: 12.99,
-    },
-    {
-      id: "j2",
-      category: "Ring",
-      src: "https://www.pandora.net/assets/content?sku=592357C01&format=jpg&width=400&height=400&hash=E78E7BE1A3CBF51AEC299679EEFBCD9014E53120",
-      price: 10.99,
-    },
-    {
-      id: "j3",
-      category: "Talisman",
-      src: "https://www.pandora.net/assets/content?sku=592357C01&format=jpg&width=400&height=400&hash=E78E7BE1A3CBF51AEC299679EEFBCD9014E53120",
-      price: 13.99,
-    },
-    {
-      id: "j4",
-      category: "Necklace",
-      src: "https://www.pandora.net/assets/content?sku=592357C01&format=jpg&width=400&height=400&hash=E78E7BE1A3CBF51AEC299679EEFBCD9014E53120",
-      price: 11.99,
-    },
-    {
-      id: "j5",
-      category: "Bracelet",
-      src: "https://www.pandora.net/assets/content?sku=592357C01&format=jpg&width=400&height=400&hash=E78E7BE1A3CBF51AEC299679EEFBCD9014E53120",
-      price: 12.99,
-    },
-    {
-      id: "j6",
-      category: "Earring",
-      src: "https://www.pandora.net/assets/content?sku=592357C01&format=jpg&width=400&height=400&hash=E78E7BE1A3CBF51AEC299679EEFBCD9014E53120",
-      price: 14.99,
-    },
-    {
-      id: "j7",
-      category: "Bracelet",
-      src: "https://www.pandora.net/assets/content?sku=592357C01&format=jpg&width=400&height=400&hash=E78E7BE1A3CBF51AEC299679EEFBCD9014E53120",
-      price: 9.99,
-    },
-  ];
+  const authCtx = useContext(AuthContext);
 
   // let userIsRegistered = true;
 
@@ -60,27 +28,37 @@ function App() {
     <Layout>
       <Switch>
         <Route path="/" exact>
-          <Redirect to="/welcome" />
+          <HomePage />
         </Route>
-        <Route path="/welcome" exact>
-          <Welcome />
+
+        <Route path="/home" exact>
+          <HomePage />
         </Route>
-        <Route path="/jewelry" exact>
-          <Jewlry list={DUMMY_PRODUCTS} />
-        </Route>
-        <Route path="/jewelry/:jewelId">
+
+        {authCtx.isLoggedIn && <Route path="/jewelry" exact>
+          <JewelryPage />
+        </Route>}
+
+        {authCtx.isLoggedIn && <Route path="/jewelry/:jewelId">
           <DetailsItem />
+        </Route>}
+
+        {!authCtx.isLoggedIn && (
+          <Route path="/auth">
+            <AuthPage />
+          </Route>
+        )}
+        
+        <Route path="/profile">
+          {authCtx.isLoggedIn && <UserProfile />}
+          {!authCtx.isLoggedIn && <Redirect to="/auth" />}
         </Route>
-        <Route path="/favorites">
-          <Favorites />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
+
         <Route path="*">
-          <NotFound />
+          <NotFoundPage />
         </Route>
       </Switch>
+
       <Footer />
     </Layout>
   );

@@ -1,4 +1,4 @@
-const NotFound = () => {
+const NotFoundPage = () => {
     return <div className="centered" style={{display: "block"}}>
         <h1>Page Not Found!</h1> 
         <br/>
@@ -6,4 +6,4 @@ const NotFound = () => {
     </div>
 }
 
-export default NotFound;
+export default NotFoundPage;

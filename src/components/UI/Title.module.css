@@ -1,0 +1,10 @@
+.title {
+    margin: 0 auto;
+    font-size: 70px;
+    font-weight: 300;
+    background-image: linear-gradient(to right, #553c9a 45%, #ee4b2b);
+    text-shadow: 0px 4px 10px rgba(179, 147, 211, 0.8);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
