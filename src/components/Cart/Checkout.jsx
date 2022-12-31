@@ -64,6 +64,12 @@ const Checkout = (props) => {
         city: enteredCity,
         postalCode: enteredPostalCode
     });
+
+    const inputs = document.querySelectorAll('#name, #street, #city, #postal');
+
+    inputs.forEach(input => {
+        input.value = '';
+    });
   };
 
   const nameControlClasses = `${classes.control} ${

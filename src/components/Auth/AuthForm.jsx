@@ -25,8 +25,6 @@ const AuthForm = () => {
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
 
-    // optional: Add validation
-
     setIsLoading(true);
 
     let url;
@@ -56,10 +54,7 @@ const AuthForm = () => {
       } else {
         return res.json().then((data) => {
           let errorMessage = "Autehtification failed!";
-          // if (data && data.error && data.error.message) {
-          //   errorMessage = data.error.message;
-          // }
-          
+
           throw new Error(errorMessage);
         });
       }
@@ -70,6 +65,13 @@ const AuthForm = () => {
     }).catch(err => {
       alert(err.message);
     });
+
+    const inputs = document.querySelectorAll('#email, #password');
+
+    inputs.forEach(input => {
+      input.value = '';
+    });
+
   };
 
   return (

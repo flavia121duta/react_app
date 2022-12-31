@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
+import { Link } from "react-router-dom";
 
 import classes from "./ProductItem.module.css";
 import Card from "../UI/Card";
@@ -31,6 +32,10 @@ const ProductItem = (props) => {
         <p>{description}</p>
         <div className={classes.actions}>
           <button onClick={addToCartHandler}>Add to Cart</button>
+          
+          <Link className={classes.btn} to={`/jewelry/${id}`}>
+            View Details
+          </Link>
         </div>
       </Card>
     </li>

@@ -36,3 +36,7 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.btn {
+  border-color: yellow;
+}

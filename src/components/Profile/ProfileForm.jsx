@@ -29,9 +29,12 @@ const ProfileForm = () => {
       }
     }).then(res => {
       // always succeds!
-      
+
       history.replace("/");
     });
+
+    const input = document.querySelector('#new-password');
+    input.value = "";
 
   };
 
