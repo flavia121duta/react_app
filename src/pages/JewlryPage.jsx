@@ -1,8 +1,14 @@
-import Jewlry from "../components/Jewelry/Jewelry";
+import Products from "../components/Jewelry/Products";
 import dummy_products from "../assets/dummy_products";
+import Cart from "../components/Cart/Cart";
 
 const JewelryPage = () => {
-    return <Jewlry list={dummy_products} />
-}
+  return (
+    <div>
+      <Cart />
+      <Products list={dummy_products} />
+    </div>
+  );
+};
 
 export default JewelryPage;

@@ -16,14 +16,11 @@ import AuthPage from "./pages/AuthPage";
 import HomePage from "./pages/HomePage";
 import JewelryPage from "./pages/JewlryPage";
 import NotFoundPage from "./pages/NotFoundPage";
-// import FavoritesPage from "./pages/FavoritesPage";
 import AuthContext from "./store/auth-context";
 
 function App() {
   const authCtx = useContext(AuthContext);
-
-  // let userIsRegistered = true;
-
+  
   return (
     <Layout>
       <Switch>

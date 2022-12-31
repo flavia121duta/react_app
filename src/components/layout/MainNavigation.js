@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import AuthContext from "../../store/auth-context";
+import CartButton from "../Cart/CartButton";
 
 import classes from "./MainNavigation.module.css";
 
@@ -46,15 +47,15 @@ const MainNavigation = () => {
 
           {isLoggedIn && (
             <li>
-              <button onClick={logoutHandler}>Logout</button>
+              <CartButton />
             </li>
           )}
 
-          {/* <li>
-            <NavLink to="/favorites" activeClassName={classes.active}>
-              Favorites
-            </NavLink>
-          </li> */}
+          {isLoggedIn && (
+            <li>
+              <button onClick={logoutHandler}>Logout</button>
+            </li>
+          )}
         </ul>
       </nav>
     </header>

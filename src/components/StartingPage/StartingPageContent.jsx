@@ -8,7 +8,6 @@ import dummy_images from '../../assets/dummy_images';
 const StartingPageContent = () => {
   return (
     <section className={classes.starting}>
-      <h1>Welcome on Board!</h1>
       <Title />
       <ImageSlider slides={dummy_images} />
       <ImageScroll />

@@ -1,0 +1,27 @@
+/* .jewelry {
+    border: 1px solid black;
+    /* padding: 1rem;
+    margin: 2rem auto;
+    width: 50rem;
+    max-width: 95%; */
+/* background-color: pink; */
+
+/*   
+  .container {
+    border: 1px solid black;
+    background-color: gray;
+  } */
+
+.products h2 {
+  color: white;
+  margin: 2rem auto;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.products ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
