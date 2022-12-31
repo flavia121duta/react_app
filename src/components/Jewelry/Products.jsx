@@ -33,7 +33,7 @@ const Jewlry = (props) => {
   
 
   return (
-    <sectin className={classes.products}>
+    <section className={classes.products}>
     <h2>Buy your favorite products</h2>
 
       <ItemsFilter
@@ -56,7 +56,7 @@ const Jewlry = (props) => {
         ))}
       </ul>
 
-    </sectin>
+    </section>
   );
 };
 
