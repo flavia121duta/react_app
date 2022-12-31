@@ -28,8 +28,8 @@ const ProfileForm = () => {
         "Content-Type": "application/json"
       }
     }).then(res => {
-      // assumption: always succeds!
-
+      // always succeds!
+      
       history.replace("/");
     });
 
