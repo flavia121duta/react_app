@@ -16,6 +16,7 @@ const ItemsFilter = (props) => {
     <div className={style.expensesFilter}>
       <div className={style.expensesFilterControl}>
         <label>Filter by Category & Price</label>
+        
         <select onChange={handleSelectedOption} value={props.selected}>
           <option value="All">All Items</option>
           <option value="Talisman">Talisman</option>

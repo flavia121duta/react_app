@@ -2,6 +2,7 @@ import classes from "../Jewelry/Products.module.css";
 import ProductItem from "./ProductItem";
 import { useState } from "react";
 import ItemsFilter from "./ItemsFilter/ItemsFilter";
+import Wrapper from "../UI/Wrapper";
 
 const Jewlry = (props) => {
   const [category, setCategory] = useState("All");
@@ -30,11 +31,10 @@ const Jewlry = (props) => {
       p1.price < p2.price ? 1 : p1.price > p2.price ? -1 : 0
     );
   }
-  
 
   return (
     <section className={classes.products}>
-    <h2>Buy your favorite products</h2>
+      <h2>Buy your favorite products</h2>
 
       <ItemsFilter
         onCategoryChange={handleFilterChange}
@@ -44,18 +44,19 @@ const Jewlry = (props) => {
       />
 
       <ul>
-        {filteredItems.map((product) => (
-          <ProductItem
-            key={product.id}
-            id={product.id}
-            category={product.category}
-            description={product.description}
-            src={product.src}
-            price={product.price}
-          />
-        ))}
+        <Wrapper>
+          {filteredItems.map((product) => (
+            <ProductItem
+              key={product.id}
+              id={product.id}
+              category={product.category}
+              description={product.description}
+              src={product.src}
+              price={product.price}
+            />
+          ))}
+        </Wrapper>
       </ul>
-
     </section>
   );
 };

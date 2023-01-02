@@ -1,15 +1,16 @@
-.item {
+.card {
+  text-align: center;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+
+.card > * :not(img) {
   display: inline-block;
-  text-align: left;
-  border: 1px solid black;
+  vertical-align: middle;
+  margin: 0.5em;
 }
 
-.item h3 {
-  margin: 0.5rem 0;
-  font-size: 1.25rem;
-}
-
-.item header {
+figcaption {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -21,22 +22,22 @@
   background-color: #3a3a3a;
   color: white;
   font-size: 1.5rem;
+  margin: 0.5em 2em;
 }
 
-.item p {
-  color: #3a3a3a;
-}
 
-.item img {
-  width: 200px;
-  height: 200px;
+.jewelImg {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
 }
 
 .actions {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn {
-  border-color: yellow;
+  border-radius: 6px
 }

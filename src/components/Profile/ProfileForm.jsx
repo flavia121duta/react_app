@@ -1,6 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import { useRef, useContext } from 'react';
 import AuthContext from '../../store/auth-context';
+import Button from "../UI/Button";
 import classes from './ProfileForm.module.css';
 
 const ProfileForm = () => {
@@ -13,8 +14,6 @@ const ProfileForm = () => {
     event.preventDefault();
 
     const enteredNewPassword = newPasswordInputRef.current.value;
-
-    // Optional: add validation
 
     const url = "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyAajn-MZjGmP1_6jFXPZoYox1pdWOaRvmI";
     fetch(url, {
@@ -41,12 +40,15 @@ const ProfileForm = () => {
   return (
     <form className={classes.form} onSubmit={submitHandler}>
       <div className={classes.control}>
-        <label htmlFor='new-password'>New Password</label>
-        <input type='password' id='new-password' minLength="7" ref={newPasswordInputRef} />
+        <label htmlFor='new-password'>Change Password</label>
+        <input 
+        type='password' 
+        id='new-password' 
+        minLength="7" 
+        placeholder='New Password'
+        ref={newPasswordInputRef} />
       </div>
-      <div className={classes.action}>
-        <button>Change Password</button>
-      </div>
+      <Button type="submit" className={classes.action}>Change Password</Button>
     </form>
   );
 }

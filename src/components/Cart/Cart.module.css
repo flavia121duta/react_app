@@ -1,7 +1,9 @@
 .cart {
   max-width: 30rem;
-  background-color: #313131;
-  color: white;
+  background-color: transparent;
+  border-color: #008080;
+  border-radius: 6px;
+  color: #008080;
 }
 
 .cart h2 {

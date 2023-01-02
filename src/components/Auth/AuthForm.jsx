@@ -2,6 +2,7 @@ import { useHistory } from "react-router-dom";
 import { useState, useRef, useContext } from "react";
 import AuthContext from "../../store/auth-context";
 
+import Button from "../UI/Button";
 import classes from "./AuthForm.module.css";
 
 const AuthForm = () => {
@@ -80,7 +81,13 @@ const AuthForm = () => {
       <form onSubmit={submitHandler}>
         <div className={classes.control}>
           <label htmlFor="email">Your Email</label>
-          <input type="email" id="email" required ref={emailInputRef} />
+          <input 
+          type="email" 
+          id="email" 
+          required 
+          ref={emailInputRef}
+          placeholder="Email"
+           />
         </div>
         <div className={classes.control}>
           <label htmlFor="password">Your Password</label>
@@ -89,20 +96,21 @@ const AuthForm = () => {
             id="password"
             required
             ref={passwordInputRef}
+            placeholder="Password"
           />
         </div>
         <div className={classes.actions}>
           {!isLoading && (
-            <button>{isLogin ? "Login" : "Create Account"}</button>
+            <Button type="submit">{isLogin ? "Login" : "Create Account"}</Button>
           )}
           {isLoading && <p>Loading...</p>}
-          <button
+          <Button
             type="button"
             className={classes.toggle}
             onClick={switchAuthModeHandler}
           >
             {isLogin ? "Create new account" : "Login with existing account"}
-          </button>
+          </Button>
         </div>
       </form>
     </section>

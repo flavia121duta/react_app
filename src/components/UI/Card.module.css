@@ -1,21 +1,8 @@
 .card {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  grid-gap: 5em;
-  justify-content: space-around;
-
-  padding: 1rem;
-  margin: 2rem auto;
-  width: 50rem;
-  max-width: 95%;
-}
-
-/* 
-.card {
-  margin: 1rem auto;
+  /* padding: 0.5em; */
+  color: #ffffff;
+  background: white;
+  text-align: center;
+  border: 1px solid black;
   border-radius: 6px;
-  background-color: white;
-  padding: 1rem;
-  width: 90%;
-  max-width: 40rem;
-} */
+}

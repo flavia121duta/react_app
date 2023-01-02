@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import classes from "./ProductItem.module.css";
 import Card from "../UI/Card";
+import Button from "../UI/Button";
 
 const ProductItem = (props) => {
   const { category, price, description, src, id } = props;
@@ -16,26 +17,24 @@ const ProductItem = (props) => {
         id,
         category,
         price,
-        src
+        src,
+        description,
       })
     );
   };
 
   return (
-    <li className={classes.item}>
+    <li>
       <Card>
-        <header>
-          <h3>{category}</h3>
+        <div className={classes.card}>
+          <img src={src} alt="jewel" className={classes.jewelImg} />
           <div className={classes.price}>${price.toFixed(2)}</div>
-        </header>
-        <img src={src} alt="jewel" />
-        <p>{description}</p>
-        <div className={classes.actions}>
-          <button onClick={addToCartHandler}>Add to Cart</button>
-          
-          <Link className={classes.btn} to={`/jewelry/${id}`}>
-            View Details
-          </Link>
+          <div className={classes.actions}>
+            <Button onClick={addToCartHandler} className={classes.btn}>Add to Cart</Button>
+            <Link className={classes.btn} to={`/jewelry/${id}`}>
+              <Button>View Details</Button>
+            </Link>
+          </div>
         </div>
       </Card>
     </li>

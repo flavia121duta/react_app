@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
+import { Prompt } from "react-router-dom";
 
 import classes from "./Checkout.module.css";
 
@@ -85,8 +86,19 @@ const Checkout = (props) => {
     formInputValidity.postalCode ? "" : classes.invalid
   }`;
 
+
+  const [isEntering, setIsEntering] = useState(false);
+  const formFocusHandler = () => {
+    setIsEntering(true);
+  };
+
   return (
-    <form className={classes.form} onSubmit={confirmHandler}>
+    <>
+    <Prompt 
+    when={isEntering} 
+    message={(location) => "Are you sure you want to leave? All your data will be lost!"}
+    />
+    <form className={classes.form} onFocus={formFocusHandler} onSubmit={confirmHandler}>
       <div className={nameControlClasses}>
         <label htmlFor="name">Your Name</label>
         <input type="text" id="name" ref={nameInputRef} />
@@ -121,6 +133,7 @@ const Checkout = (props) => {
         <button className={classes.submit}>Confirm</button>
       </div>
     </form>
+    </>
   );
 };
 

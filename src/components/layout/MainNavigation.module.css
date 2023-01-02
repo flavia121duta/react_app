@@ -13,12 +13,19 @@
   color: white;
 }
 
+
 .nav ul {
   list-style: none;
   display: flex;
   margin: 0;
   padding: 0;
   align-items: center;
+
+  overflow: hidden;
+}
+
+.nav .icon {
+  display: none;
 }
 
 .nav li {
@@ -49,6 +56,33 @@
 }
 
 .header button:hover {
-  background-color: #c291e2;
-  color: #38015c;
+  background-color:#c2ebeb;
+  color: #008080;
+}
+
+/* TODO: make this responsive */
+@media screen and (max-width: 500px){
+  .logo {
+    order: 1;
+  }
+  .list {
+      order: 2;
+      flex-direction: column;
+      height: auto;
+  }
+  /* .li:nth-child(1){
+      border-top: 1px solid rgba(255, 255, 255, 0.555);
+      margin-top: 50px;
+  } */
+  .li{
+      width: 100%;
+      border-top: 1px solid rgba(255, 255, 255, 0.555);
+      text-align: center;
+      margin-right: 0px;
+      padding: 20px 0;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
 }

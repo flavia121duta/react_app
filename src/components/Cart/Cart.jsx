@@ -4,10 +4,11 @@ import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
 import { cartActions } from "../../store/cart-slice";
 
-import Card from "../UI/Card";
 import classes from "./Cart.module.css";
 import CartItem from "./CartItem";
 import Checkout from "./Checkout";
+import Button from "../UI/Button";
+import Wrapper from "../UI/Wrapper";
 
 const Cart = (props) => {
   const cartItems = useSelector((state) => state.cart.items);
@@ -20,6 +21,11 @@ const Cart = (props) => {
 
   const [isCheckout, setIsCheckout] = useState(false);
   const orderHandler = () => {
+    if (cartItems.length === 0) {
+      console.log("Can't order from empty cart");
+      return;
+    }
+
     setIsCheckout(true);
   };
 
@@ -47,9 +53,20 @@ const Cart = (props) => {
     window.location = window.location + "#top";
   };
 
+  const toggleCartHandler = () => {
+    dispatch(uiActions.toggle());
+  };
+
+  let content;
+  if (cartItems.length === 0) {
+    content = <h2>Your cart is empty</h2>
+  } else {
+    content = <h2>Your Shopping Cart</h2>
+  }
+
   const cartContent = (
     <>
-      <h2>Your Shopping Cart</h2>
+      {content}
       <ul>
         {cartItems.map((item) => (
           <CartItem
@@ -71,28 +88,26 @@ const Cart = (props) => {
 
       {isCheckout && <Checkout onConfirm={sumbitOrderHandler} />}
 
-      {!isCheckout && <button onClick={orderHandler}>Order</button>}
+      {!isCheckout && <Button onClick={orderHandler}>Order</Button>}
+      {!isCheckout && <Button onClick={toggleCartHandler}>Close</Button>}
     </>
   );
 
   const isSubmittingContent = <p>Sending order data...</p>;
 
-  const toggleCartHandler = () => {
-    dispatch(uiActions.toggle());
-  };
   const didSubmitContent = (
     <>
       <p>Success!</p>
-      <button onClick={toggleCartHandler}>Close</button>
+      <Button onClick={toggleCartHandler}>Close</Button>
     </>
   );
 
   return (
-    <Card className={classes.cart}>
+    <Wrapper className={classes.cart}>
       {!isSumbitting && !didSubmit && cartContent}
       {isSumbitting && isSubmittingContent}
       {!isSumbitting && didSubmit && didSubmitContent}
-    </Card>
+    </Wrapper>
   );
 };
 

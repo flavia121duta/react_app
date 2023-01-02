@@ -18,7 +18,7 @@ const MainNavigation = () => {
     <header className={classes.header}>
       <div className={classes.logo}>Iced Gold Jewelry Store 💎</div>
       <nav className={classes.nav}>
-        <ul>
+        <ul className={classes.list}>
           {isLoggedIn && (
             <li>
               <NavLink to="/home" activeClassName={classes.active}>
@@ -46,13 +46,13 @@ const MainNavigation = () => {
           )}
 
           {isLoggedIn && (
-            <li>
+            <li className={classes.btn}>
               <CartButton />
             </li>
           )}
 
           {isLoggedIn && (
-            <li>
+            <li className={classes.btn}>
               <button onClick={logoutHandler}>Logout</button>
             </li>
           )}
