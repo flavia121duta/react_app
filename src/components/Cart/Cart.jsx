@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
 import { cartActions } from "../../store/cart-slice";
@@ -57,16 +57,16 @@ const Cart = (props) => {
     dispatch(uiActions.toggle());
   };
 
-  let content;
+  let message;
   if (cartItems.length === 0) {
-    content = <h2>Your cart is empty</h2>
+    message = <h2>Your cart is empty</h2>;
   } else {
-    content = <h2>Your Shopping Cart</h2>
+    message = <h2>Your Shopping Cart</h2>;
   }
 
   const cartContent = (
-    <>
-      {content}
+    <div className={classes.shoppingCart}>
+      {message}
       <ul>
         {cartItems.map((item) => (
           <CartItem
@@ -83,14 +83,18 @@ const Cart = (props) => {
         ))}
       </ul>
 
-      <span className={classes.badge}>{cartQuantity}</span>
-      <span className={classes.badge}>${cartTotal}</span>
+      <div className={classes.badgeDetails}>
+        <div className={classes.badge}>Items: {cartQuantity}</div>
+        <div className={classes.badge}>${cartTotal}</div>
+      </div>
 
       {isCheckout && <Checkout onConfirm={sumbitOrderHandler} />}
 
-      {!isCheckout && <Button onClick={orderHandler}>Order</Button>}
-      {!isCheckout && <Button onClick={toggleCartHandler}>Close</Button>}
-    </>
+      <div className={classes.buttons}>
+        {!isCheckout && <Button onClick={orderHandler}>Order</Button>}
+        {!isCheckout && <Button onClick={toggleCartHandler}>Close</Button>}
+      </div>
+    </div>
   );
 
   const isSubmittingContent = <p>Sending order data...</p>;

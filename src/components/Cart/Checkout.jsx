@@ -4,6 +4,7 @@ import { uiActions } from "../../store/ui-slice";
 import { Prompt } from "react-router-dom";
 
 import classes from "./Checkout.module.css";
+import Button from "../UI/Button";
 
 const isEmpty = (value) => value.trim().length === 0;
 const isSixChars = (value) => value.trim().length === 6;
@@ -126,11 +127,11 @@ const Checkout = (props) => {
       </div>
 
       <div className={classes.actions}>
-        <button type="button" onClick={toggleCartHandler}>
+        <Button onClick={toggleCartHandler}>
           Cancel
-        </button>
+        </Button>
 
-        <button className={classes.submit}>Confirm</button>
+        <Button type="submit" className={classes.submit}>Confirm</Button>
       </div>
     </form>
     </>

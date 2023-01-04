@@ -1,13 +1,18 @@
 import styles from "./DetailsItem.module.css";
 import Card from "../UI/Card";
+import Button
+ from "../UI/Button";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../store/cart-slice";
 
 const DetailsItem = () => {
   const params = useParams();
 
   const [jewelry, setJewelry] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchJewelry = async () => {
@@ -37,37 +42,59 @@ const DetailsItem = () => {
       setIsLoading(false);
     };
 
-    
-    fetchJewelry().then().catch(error => {
-      setIsLoading(false);
-    });
-    
+    fetchJewelry()
+      .then()
+      .catch((error) => {
+        setIsLoading(false);
+      });
   }, []);
 
   if (isLoading) {
-    return <section style={{textAlign: "center"}}>
-      <p>Loading...</p>
-    </section>
+    return (
+      <section style={{ textAlign: "center" }}>
+        <p>Loading...</p>
+      </section>
+    );
   }
 
-
-  // daca a trecut de toate if-urile de mai sus, atunci: 
+  // daca a trecut de toate if-urile de mai sus, atunci:
   const jewel = jewelry.find((item) => item.id === params.jewelId);
 
   if (!jewel) {
-    return <p>Jewel not found!</p>;
+    return <p className={styles.notFound}>Jewel not found!</p>;
   }
 
+  const id = jewel.id;
+  const category = jewel.category;
+  const price = jewel.price;
+  const src = jewel.src;
+  const description = jewel.description;
+
+  const addToCartHandler = () => {
+    dispatch(
+      cartActions.addItemToCart({
+        id,
+        category,
+        price,
+        src,
+        description,
+      })
+    );
+  };
+
   return (
-    <Card className={styles.container}>
-      <h1>Page with details</h1>
-      <div>
-        <p>{jewel.category}</p>
-        <img src={jewel.src} alt="jewel" />
-        <p>{jewel.description}</p>
-        <p>{jewel.price}</p>
-      </div>
-    </Card>
+    <div className={styles.content}>
+      <h1 className={styles.detailsPageTitle}>Details about this product</h1>
+      <Card className={styles.container}>
+        <div className={styles.details}>
+          <p>{jewel.category}</p>
+          <img src={jewel.src} alt="jewel" />
+          <p>{jewel.description}</p>
+          <p>{jewel.price}</p>
+          <Button onClick={addToCartHandler} className={styles.btn}>Add to Cart</Button>
+        </div>
+      </Card>
+    </div>
   );
 };
 
