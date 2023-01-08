@@ -1,7 +1,6 @@
 import styles from "./DetailsItem.module.css";
 import Card from "../UI/Card";
-import Button
- from "../UI/Button";
+import Button from "../UI/Button";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -85,13 +84,18 @@ const DetailsItem = () => {
   return (
     <div className={styles.content}>
       <h1 className={styles.detailsPageTitle}>Details about this product</h1>
+
       <Card className={styles.container}>
-        <div className={styles.details}>
-          <p>{jewel.category}</p>
+        <div className={styles.photo}>
           <img src={jewel.src} alt="jewel" />
-          <p>{jewel.description}</p>
-          <p>{jewel.price}</p>
-          <Button onClick={addToCartHandler} className={styles.btn}>Add to Cart</Button>
+        </div>
+        <div className={styles.details}>
+          <p>Category: {jewel.category}</p>
+          <p>Description: {jewel.description}</p>
+          <p>Price: ${jewel.price}</p>
+          <Button onClick={addToCartHandler} className={styles.btn}>
+            Add to Cart
+          </Button>
         </div>
       </Card>
     </div>
