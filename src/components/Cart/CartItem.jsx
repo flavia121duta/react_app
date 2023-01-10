@@ -14,34 +14,39 @@ const CartItem = (props) => {
   };
 
   const addItemHandler = () => {
-    dispatch(cartActions.addItemToCart({
-      id,
-      price,
-      src,
-      name: title
-    }));
+    dispatch(
+      cartActions.addItemToCart({
+        id,
+        price,
+        src,
+        name: title,
+      })
+    );
   };
 
   return (
-    <li >
-    <Card className={classes.item}>
-      <header>
-        <h3>{title}</h3>
-        <div className={classes.price}>
-          ${total.toFixed(2)}{" "}
-          <span className={classes.itemprice}>(${price.toFixed(2)}/item)</span>
+    <li>
+      <Card className={classes.item}>
+        <header>
+          <h3>{title}</h3>
+          <div className={classes.price}>
+            {total.toFixed(2)}€{" "}
+            <span className={classes.itemprice}>
+              ({price.toFixed(2)}€/item)
+            </span>
+          </div>
+        </header>
+        
+        <div className={classes.details}>
+          <img src={src} alt="jewel" />
+          <div className={classes.quantity}>
+            x <span>{quantity}</span>
+          </div>
+          <div className={classes.actions}>
+            <button onClick={removeItemHandler}>-</button>
+            <button onClick={addItemHandler}>+</button>
+          </div>
         </div>
-      </header>
-      <div className={classes.details}>
-        <img src={src} alt="jewel" />
-        <div className={classes.quantity}>
-          x <span>{quantity}</span>
-        </div>
-        <div className={classes.actions}>
-          <button onClick={removeItemHandler}>-</button>
-          <button onClick={addItemHandler}>+</button>
-        </div>
-      </div>
       </Card>
     </li>
   );

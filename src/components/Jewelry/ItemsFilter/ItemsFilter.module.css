@@ -12,7 +12,7 @@
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 1rem 0;
 }
 
@@ -23,7 +23,7 @@
 
 .expensesFilter select {
   font: inherit;
-  padding: 0.5rem 3rem;
+  padding: 0.5rem 1rem;
   font-weight: bold;
   border-radius: 6px;
 }

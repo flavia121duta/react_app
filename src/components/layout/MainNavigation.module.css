@@ -2,7 +2,7 @@
   width: 100%;
   height: fit-content;
   display: flex;
-  padding: 2% 10%;
+  padding: 2% 5%;
   justify-content: space-between;
   align-items: center;
   background-color: #008080;
@@ -44,6 +44,15 @@
   color: #e6fcfc;
 }
 
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.pages {
+  display: flex;
+}
+
 .header button {
   font: inherit;
   background-color: transparent;
@@ -61,28 +70,22 @@
 }
 
 /* TODO: make this responsive */
-@media screen and (max-width: 500px){
-  .logo {
-    order: 1;
-  }
-  .list {
-      order: 2;
-      flex-direction: column;
-      height: auto;
-  }
-  /* .li:nth-child(1){
-      border-top: 1px solid rgba(255, 255, 255, 0.555);
-      margin-top: 50px;
-  } */
-  .li{
-      width: 100%;
-      border-top: 1px solid rgba(255, 255, 255, 0.555);
-      text-align: center;
-      margin-right: 0px;
-      padding: 20px 0;
+@media screen and (max-width: 800px) {
+  .header {
+    display: flex;
+    flex-direction: row;
   }
 
+  .pages, .buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn:first-of-type {
+    margin-bottom: 5px;
+  }
+  
   .logo {
-    font-size: 1.5rem;
+    font-size: 5vw;
   }
 }

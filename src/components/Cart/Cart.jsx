@@ -85,7 +85,7 @@ const Cart = (props) => {
 
       <div className={classes.badgeDetails}>
         <div className={classes.badge}>Items: {cartQuantity}</div>
-        <div className={classes.badge}>${cartTotal}</div>
+        <div className={classes.badge}>{cartTotal} €</div>
       </div>
 
       {isCheckout && <Checkout onConfirm={sumbitOrderHandler} />}
@@ -102,7 +102,7 @@ const Cart = (props) => {
   const didSubmitContent = (
     <>
       <p>Success!</p>
-      <Button onClick={toggleCartHandler}>Close</Button>
+      <Button onClick={toggleCartHandler} className={classes.closeButton}>Close</Button>
     </>
   );
 

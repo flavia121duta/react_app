@@ -4,14 +4,15 @@
   border-color: #008080;
   border-radius: 6px;
   color: #008080;
-
   display: flex;
   flex-direction: column;
+  width: 80%;
+  gap: 1px;
 }
 
 .cart h2 {
   font-size: 1.25rem;
-  margin: 0.5rem 0;
+  margin: 0 auto;
 }
 
 .cart ul {
@@ -20,54 +21,57 @@
   margin: 0;
 }
 
-.details {
-  margin: 0 auto;
+.badgeDetails {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.badge:nth-of-type(2) {
+  margin-left: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons {
+  margin-top: 2em;
+}
+
+.buttons > * {
+  padding: 10px;
 }
 
 .badge {
   background-color: #1ad1b9;
   border-radius: 30px;
-  padding: 0.15rem 1.25rem;
   color: #1d1d1d;
-  width: 30%;
-  float:left;
-}
-
-.badge:first-of-type {
-  margin-right: 10px;
-}
-
-
-.buttons {
-  display: flex;
-  margin: 0 auto;
-}
-
-.buttons > * {
-  margin: 10%;
   padding: 10px;
 }
 
 .shoppingCart {
-  /* width: 80%; */
+  display: flex;
+  flex-direction: column;
+}
+
+.closeButton {
+  width: 30%;
 }
 
 @media only screen and (max-width: 600px) {
-  .buttons {
-    flex-direction: column;
-  }
-
-  .buttons > * {
-    padding: 10px;
-    width: fit-content;
-  }
-
   .badgeDetails {
-    display: flex;
+    width: fit-content;
+    margin-left: auto; 
+    margin-right: 0;
     flex-direction: column;
+  }
+
+  .buttons {
+    justify-content: space-around;
   }
 
   .badge {
     margin: 10px;
-  }
+  } 
 }

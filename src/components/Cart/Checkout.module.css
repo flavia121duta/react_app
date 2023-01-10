@@ -1,8 +1,10 @@
 .form {
-  margin: 1rem 0;
+  margin: 0 auto;
   height: fit-content;
-  margin-top: 5em;
+  margin-top: 1em;
   align-items: center;
+  border: 1px solid seagreen;
+  padding: 10% 5%;
 }
 
 .control {
@@ -27,6 +29,7 @@
   display: flex;
   justify-content: flex-start;
   gap: 1rem;
+  margin-top: 2em;
 }
 
 .actions button {

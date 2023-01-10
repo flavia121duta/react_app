@@ -5,8 +5,10 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
+import JewelryCareModal from "../UI/JewelryCareModal";
 
 const DetailsItem = () => {
+  const [viewModal, setViewModal] = useState(false);
   const params = useParams();
 
   const [jewelry, setJewelry] = useState([]);
@@ -82,23 +84,38 @@ const DetailsItem = () => {
   };
 
   return (
+    <>
+    {viewModal && <JewelryCareModal onConfirm={() => setViewModal(false)} />}
     <div className={styles.content}>
       <h1 className={styles.detailsPageTitle}>Details about this product</h1>
 
       <Card className={styles.container}>
         <div className={styles.photo}>
-          <img src={jewel.src} alt="jewel" />
+          <img className={styles.img} src={jewel.src} alt="jewel" />
         </div>
         <div className={styles.details}>
-          <p>Category: {jewel.category}</p>
-          <p>Description: {jewel.description}</p>
-          <p>Price: ${jewel.price}</p>
-          <Button onClick={addToCartHandler} className={styles.btn}>
-            Add to Cart
-          </Button>
+          <div className={styles.gridContainer}>
+            <div>Category:</div>
+            <div>{jewel.category}</div>
+            <div>Description:</div>
+            <div>{jewel.description}</div>
+            <div>Price:</div>
+            <div>{jewel.price} €</div>
+            <div>
+              <Button onClick={addToCartHandler}>
+                Add to Cart
+              </Button>
+            </div>
+            <div style={{textAlign: "right"}}>
+              <Button onClick={() => setViewModal(true)}>
+                Take care of your jewels
+              </Button>
+            </div>
+          </div>
         </div>
       </Card>
     </div>
+    </>
   );
 };
 

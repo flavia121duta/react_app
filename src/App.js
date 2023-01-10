@@ -1,13 +1,6 @@
 import { useContext } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-
-// import Jewlry from "./pages/Jewelry";
-// import Favorites from "./pages/Favorites";
-// import Layout from "./components/layout/Layout";
 import DetailsItem from "./components/Jewelry/DetailsItem";
-// import Welcome from "./pages/Welcome";
-// import Login from "./pages/Login";
-// import NotFound from "./pages/NotFound";
 import Footer from "./components/Layout/Footer";
 
 import Layout from "./components/Layout/Layout";
